@@ -288,9 +288,10 @@ Blockly.Generator.prototype.valueToCode = function(block, name, outerOrder) {
  * look at using workspaceToCode or blockToCode.
  * @param {!Blockly.Block} block The block containing the input.
  * @param {string} name The name of the input.
+ * @param prefix
  * @return {string} Generated code or '' if no blocks are connected.
  */
-Blockly.Generator.prototype.statementToCode = function(block, name) {
+Blockly.Generator.prototype.statementToCode = function(block, name, prefix) {
   var targetBlock = block.getInputTargetBlock(name);
   var code = this.blockToCode(targetBlock);
   // Value blocks must return code and order of operations info.
@@ -300,7 +301,11 @@ Blockly.Generator.prototype.statementToCode = function(block, name) {
         (targetBlock && targetBlock.type));
   }
   if (code) {
-    code = this.prefixLines(/** @type {string} */ (code), this.INDENT);
+    if (prefix != null && typeof prefix === 'string') {
+      code = this.prefixLines(/** @type {string} */ (code), prefix);
+    } else {
+      code = this.prefixLines(/** @type {string} */ (code), this.INDENT);
+    }
   }
   return code;
 };

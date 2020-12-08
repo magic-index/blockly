@@ -1,6 +1,6 @@
 {
-  "name": "blockly",
-  "version": "3.20200924.4",
+  "name": "@magic-index/blockly",
+  "version": "3.20200924.5",
   "description": "Blockly is a library for building visual programming editors.",
   "keywords": [
     "blockly"

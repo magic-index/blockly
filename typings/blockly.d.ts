@@ -7020,9 +7020,10 @@ declare module Blockly {
              * look at using workspaceToCode or blockToCode.
              * @param {!Blockly.Block} block The block containing the input.
              * @param {string} name The name of the input.
+             * @param prefix
              * @return {string} Generated code or '' if no blocks are connected.
              */
-            statementToCode(block: Blockly.Block, name: string): string;
+            statementToCode(block: Blockly.Block, name: string, prefix?: string): string;
     
             /**
              * Add an infinite loop trap to the contents of a loop.
